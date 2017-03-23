@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="admin_users new">
+  <h2>Create AdminUser</h2>
+
+  <%= form_for(:admin_user, :url => {:action => 'create'}) do |f| %>
+
+  <%= render(:partial => "form" , :locals => {:foo => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create AdminUser") %>
+    </div>
+
+  <% end %>
+</div>

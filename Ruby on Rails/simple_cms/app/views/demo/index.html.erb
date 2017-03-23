@@ -1,0 +1,16 @@
+<h1>Demo#index</h1>
+<p>hello from index!</p>
+
+<a href="/demo/hello"> Hello Page 1 </a> <br>
+<%= link_to('Hello Page 2' , 'hello') %> <br>
+<%= link_to('Hello Page 3' , {:action => 'hello'}) %> <br>
+
+<!-- add parameters to link
+    http://localhost:3000/demo/hello/20?page=5 !-->
+<%= link_to('Hello with parameters' , {:action => 'hello' , :page => 5 , :id => 20}) %> <br>
+
+
+  <!-- To call JavaScript functions-->
+<%= link_to('Roar' , '#' , :onclick => "jsRoar('JavaScript'); return true;") %>
+  <!-- OR -->
+<%= javascript_tag("jsRoar('Rails');") %> 

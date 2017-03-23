@@ -1,0 +1,39 @@
+<% @page_title = "AdminUsers" %>
+
+<%= link_to("<< Back to Main Menu", {:controller => 'Access', :action => 'index'}, :class => 'back-link') %>
+
+<div class="admin_users index">
+  <h2>AdminUsers</h2>
+
+  <%= link_to(image_tag('plus_sign.png' , :size => '11x11' , :alt => '+') + " Add New AdminUser", {:action => 'new'}, :class => 'action new') %>
+
+  <div>
+    <%= pluralize(@admin_users.size , "admin_user") %> found
+  </div>
+
+  <table class="listing" summary="AdminUser list">
+    <tr class="header">
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Pages</th>
+      <th>Sections</th>
+      <th>Actions</th>
+    </tr>
+    <% @admin_users.each do |admin_user| %>
+    <tr class="<%= cycle('odd' , 'even') %>">
+      <td><%= admin_user.first_name %></td>
+      <td><%= admin_user.last_name %></td>
+      <td><%= admin_user.username %></td>
+      <td><%= mail_to(admin_user.email) %></td>
+      <td><%= admin_user.pages.size %></td>
+      <td><%= admin_user.sections.size %></td>
+      <td class="actions">
+        <%= link_to("Edit", {:action => 'edit' , :id => admin_user.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete' , :id => admin_user.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,18 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="subjects edit">
+  <h2>Update Subject</h2>
+
+  <%= form_for(:subject, :url => {:action => 'update' , :id => @subject.id}) do |f| %>
+
+    <% #to render to partial form and sending local variables.
+          # foo is local variable in parial form.
+    %>
+    <%= render(:partial => "form" , :locals => {:foo => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update Subject") %>
+    </div>
+
+  <% end %>
+</div>
